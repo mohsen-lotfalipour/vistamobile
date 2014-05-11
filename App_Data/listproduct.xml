@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Edited by XMLSpy -->
+<pages>
+  <link>
+    <name>Flat Sony IT26i</name>
+    <id>1</id>
+  </link>
+  <link>
+    <name>LCD Sony s28</name>
+    <id>2</id>
+  </link>
+  <link>
+    <name>LCD Nokia 1200</name>
+    <id>3</id>
+  </link>
+  <link>
+    <name>Touch Apple iPhone5</name>
+    <id>4</id>
+  </link>
+  <link>
+    <name>Touch Apple iPhone4</name>
+    <id>5</id>
+  </link>
+</pages>
