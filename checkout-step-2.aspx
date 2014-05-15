@@ -92,7 +92,7 @@
                    <%--                 <input type="text" class="input-block-level" id="inputEmail" placeholder="نام کاربری یا ایمیل"
                         name="inputEmail" required="true" title="Username or Email" oninvalid="InvalidMsg(this,'لطفا از کاراکترهای مجاز استفاده کنید','لطفا نام کاربری یا ایمیل خود را وارد کنید');"
                         oninput="setCustomValidity('')" pattern="[a-zA-Z0-9@._-]+">--%>
-                                        <input type="text" id="firstName" class="span4"  required="true"  oninvalid="InvalidMsg(this,'لطفا از کاراکترهای مجاز استفاده کنید','لطفا نام خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[a-zA-Z]+" name="firstName">
+                                        <input type="text" id="firstName" class="span4" runat="server" required="true"  oninvalid="InvalidMsg(this,'لطفا از کاراکترهای مجاز استفاده کنید','لطفا نام خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[a-zA-Z]+" name="firstName">
                                      <%--   <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server"
                                                 ControlToValidate="firstName"
                                                 ErrorMessage="لطفا نام خود را وارد کنید"
@@ -103,7 +103,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="lastName">نام خانوادگی<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="lastName"  class="span4"  required="true" oninvalid="InvalidMsg(this,'لطفا از کاراکترهای مجاز استفاده کنید','لطفا نام خانوادگی خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[a-zA-Z]+" name="lastName">
+                                        <input type="text" id="lastName"  class="span4" runat="server" required="true" oninvalid="InvalidMsg(this,'لطفا از کاراکترهای مجاز استفاده کنید','لطفا نام خانوادگی خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[a-zA-Z]+" name="lastName">
                                         <%--<asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
                                                 ControlToValidate="lastName"
                                                 ErrorMessage="لطفا نام خانوادگی خود را وارد کنید"
@@ -114,7 +114,18 @@
                                 <div class="control-group">
                                     <label class="control-label" for="telephone">تلفن<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="telephone" class="span4"  required="true"  oninvalid="InvalidMsg(this,'شماره تلفن شامل عدد نمیباشد','لطفا تلفن خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[0-9]+" name"telephone">
+                                        <input type="text" id="telephone" class="span4" runat="server"  required="true"  oninvalid="InvalidMsg(this,'شماره تلفن شامل حروف نمیباشد','لطفا تلفن خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[0-9]+" name="telephone">
+                                       <%--  <asp:RequiredFieldValidator id="RequiredFieldValidatortel" runat="server"
+                                                ControlToValidate="telephone"
+                                                ErrorMessage="لطفا تلفن خود را وارد کنید"
+                                                ForeColor="Red">
+                                        </asp:RequiredFieldValidator>--%>
+                                    </div>
+                                </div>
+                                 <div class="control-group">
+                                    <label class="control-label" for="mobile">موبایل<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="mobile" class="span4" runat="server"  required="true"  oninvalid="InvalidMsg(this,'شماره موبایل شامل حروف نمیباشد','لطفا موبایل خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[0-9]+" name="mobile">
                                        <%--  <asp:RequiredFieldValidator id="RequiredFieldValidatortel" runat="server"
                                                 ControlToValidate="telephone"
                                                 ErrorMessage="لطفا تلفن خود را وارد کنید"
@@ -125,7 +136,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="email">ایمیل<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="email" class="span4"  required="true"  oninvalid="InvalidMsg(this,'ایمیل وارد شده معتبر نمیباشد','لطفا ایمیل خود را وارد کنید');"
+                                        <input type="text" id="email" class="span4" runat="server" required="true"  oninvalid="InvalidMsg(this,'ایمیل وارد شده معتبر نمیباشد','لطفا ایمیل خود را وارد کنید');"
                                                         oninput="setCustomValidity('')" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email">
                                          <%--     <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server"
                                                 ControlToValidate="email"
@@ -137,7 +148,18 @@
                                 <div class="control-group">
                                     <label class="control-label" for="addr1">ادرس 1<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="addr1" class="span4"  required oninvalid="setCustomValidity('لطفا آدرس خود را وارد کنید')" oninput="setCustomValidity('')" name="addr1">
+                                        <input type="text" id="addr1" class="span4" runat="server"  required="true" oninvalid="setCustomValidity('لطفا آدرس خود را وارد کنید')" oninput="setCustomValidity('')" name="addr1">
+                                            <%--  <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server"
+                                                ControlToValidate="addr1"
+                                                ErrorMessage="لطفا آدرس خود را وارد کنید"
+                                                ForeColor="Red">
+                                        </asp:RequiredFieldValidator>--%>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="company">شرکت یا فروشگاه</label>
+                                    <div class="controls">
+                                        <input type="text" id="company" class="span4" runat="server" name="company">
                                             <%--  <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server"
                                                 ControlToValidate="addr1"
                                                 ErrorMessage="لطفا آدرس خود را وارد کنید"
@@ -154,7 +176,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="zip">کد پستی<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="zip" class="span4"   required="true"  oninvalid="InvalidMsg(this,'کد پستی شامل حروف نمیباشد','لطفا کد پستی خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[0-9]+" name="zip">
+                                        <input type="text" id="zip" class="span4" runat="server"   required="true"  oninvalid="InvalidMsg(this,'کد پستی شامل حروف نمیباشد','لطفا کد پستی خود را وارد کنید');" oninput="setCustomValidity('')" pattern="[0-9]+" name="zip">
                                            <%--   <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server"
                                                 ControlToValidate="zip"
                                                 ErrorMessage="لطفا کد پستی خود را وارد کنید"
@@ -186,7 +208,7 @@
                                  <div class="control-group">
                                     <label class="control-label" for="city">استان<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                     <select name="Ostan" id="ostan_id" onchange="city_selected(this.value);">
+                                     <select runat="server" name="Ostan" id="ostan_id" onchange="city_selected(this.value);">
                         <option value="">لطفا استان خود را انتخاب کنید</option>
                         <option value="41">آذربايجان شرقي</option>
                         <option value="44">آذربايجان غربي</option>
@@ -221,7 +243,7 @@
                         <option value="35">يزد</option>
                     </select>
                     <label class="control-label" for="shahrestan">شهرستان<span class="red-clr bold">*</span></label>
-                    <select size="1" name="city" id="city_id">
+                    <select  runat="server" size="1" name="city" id="city_id">
                         <option selected="selected" value="">لطفا شهر خود را  انتخاب کنید</option>
                     </select>
                         <script>city_selected("71");</script>

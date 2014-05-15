@@ -90,4 +90,13 @@ public class usersUtility
         }
         return false;
     }
+
+    public DataTable getUser(string username)
+    {
+        string sql = @"SELECT * FROM userinfo where ";
+        sql += "user_name='{0}' OR email='{0}'";
+        sql = String.Format(sql, username);
+        ds = db.db_ExecuteQuery(sql);
+        return ds.Tables[0];
+    }
 }

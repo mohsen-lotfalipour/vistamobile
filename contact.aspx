@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="contact.aspx.cs" Inherits="contact" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true"
+    CodeFile="contact.aspx.cs" Inherits="contact" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
- <!--  ==========  -->
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
     <div class="darker-stripe">
@@ -11,33 +12,26 @@
             <div class="row">
                 <div class="span12">
                     <ul class="breadcrumb">
-                        <li>
-                            <a href="index.aspx">صفحه اصلی</a>
-                        </li>
+                        <li><a href="index.aspx">صفحه اصلی</a> </li>
                         <li><span class="icon-chevron-left"></span></li>
-                        <li>
-                            <a href="contact.aspx">ارتباط با ما</a>
-                        </li>
+                        <li><a href="contact.aspx">ارتباط با ما</a> </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container">
         <div class="push-up top-equal blocks-spacer-last">
             <div class="row">
-                
                 <!--  ==========  -->
                 <!--  = Main Title =  -->
                 <!--  ==========  -->
-                
                 <div class="span12">
                     <div class="title-area">
-                        <h1 class="inline"><span class="light">با ما</span> ارتباط برقرار کنید.</h1>
+                        <h1 class="inline">
+                            <span class="light">با ما</span> ارتباط برقرار کنید.</h1>
                     </div>
                 </div>
-                
                 <!--  ==========  -->
                 <!--  = Main content =  -->
                 <!--  ==========  -->
@@ -49,7 +43,7 @@
                     <article class="post">
                         <div class="post-inner">
                             <p>
-								فرم تماسی که مشاهده میکنید از قبل در این قالب آماده شده است. برای استفاده از آن کافی است به سادگی صفحه ای بسازی و از تمپلیت تماس استفاده نمایید. البته طبیعی است که یک قالب اچ تی ام ال است و این اتفاق فقط وقتی می افتد که این قالب را وردپرسی کرده باشید! در آن حالت فرم تماس در زیر هر صفحه ای که از قالب تماس استفاده نماید پدیدار خواهد شد. تنظیمات فرم را میتوانید به دلخواه تغییر دهید.
+							نظرات و سوالات خود را با ما در میان بگذارید
                             </p>
                         </div>
                     </article>
@@ -97,21 +91,25 @@
                         		<h3 class="push-down-30"><span class="light">اطلاعات</span> شرکت</h3>
                         		    
                         		<p>
-                        		    <strong class="opensans dark-clr">شرکت خیالی با مسئولیت محدود</strong>
+                        		    <strong class="opensans dark-clr">فروشگاه آنلاین ویستا موبایل</strong>
                         		    <br />
-                        		    Wall street 17,
                         		    <br />
-                        		    1000 New York,
+                        		  فارس
                         		    <br />
-                        		    United States
-                        		</p>
+                        		  شیراز،خیابان توحید(داریوش)
+                        		
+                                    پاساژ ایروانی، ورودی مجتمع تجاری شهر پلاک B42
+                        		
+                                </p>
                         		    
                         		<p>
-                        		    <strong class="opensans dark-clr">شماره تماس :</strong> 00386 31 567 537
+                        		    <strong class="opensans dark-clr">شماره تماس 1:</strong> 2356733
                         		    <br />
-                        		    <strong class="opensans dark-clr">فکس:</strong> 00386 31 567 538
+                        		    <strong class="opensans dark-clr">شماره تماس 2:</strong> 2356735
                         		    <br />
-                        		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">info@webmarket.com</a>
+                        		    <strong class="opensans dark-clr">فکس:</strong> 2356719
+                        		    <br />
+                        		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">farmehdi2010@yahoo.com</a>
                         		</p>
                         	</div>
                         	<div class="span5">
@@ -121,8 +119,8 @@
     
                     </article>
 
-                </section> <!-- /main content -->
-                
+                </section>
+                <!-- /main content -->
                 <!--  ==========  -->
                 <!--  = Sidebar =  -->
                 <!--  ==========  -->
@@ -141,7 +139,7 @@
                                     شنبه
                                 </dt>
                                 <dd>
-                                    8:00 - 16:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
                             <dl class="week-day light-bg">
@@ -149,7 +147,7 @@
                                     یکشنبه
                                 </dt>
                                 <dd>
-                                    8:00 - 16:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
                             <dl class="week-day">
@@ -157,15 +155,15 @@
                                     دوشنبه
                                 </dt>
                                 <dd>
-                                    8:00 - 16:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
-                            <dl class="week-day light-bg today">
+                            <dl class="week-day light-bg ">
                                 <dt>
                                     سه شنبه
                                 </dt>
                                 <dd>
-                                    10:00 - 15:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
                             <dl class="week-day">
@@ -173,7 +171,7 @@
                                     چهارشنبه
                                 </dt>
                                 <dd>
-                                    8:00 - 16:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
                             <dl class="week-day light-bg">
@@ -181,7 +179,7 @@
                                     پنج شنبه
                                 </dt>
                                 <dd>
-                                    8:00 - 16:00
+                                    9:00 - 21:00  
                                 </dd>
                             </dl>
                             <dl class="week-day closed">
@@ -198,7 +196,7 @@
                     <!--  ==========  -->
                     <!--  = Twitter Widget =  -->
                     <!--  ==========  -->
-                    <div class="sidebar-item widget_twitter">
+        <%--            <div class="sidebar-item widget_twitter">
                         <div class="underlined">
                             <h3><span class="light">فید</span> توییتر</h3>
                         </div>
@@ -207,14 +205,12 @@
 <script>    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");</script>
 
                     </div>
+                    --%>
                     
-                    
-                </aside> <!-- /sidebar -->
-
+                </aside>
+                <!-- /sidebar -->
             </div>
         </div>
-    </div> <!-- /container -->
-    
-     
+    </div>
+    <!-- /container -->
 </asp:Content>
-
