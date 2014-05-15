@@ -21,4 +21,36 @@
     <name>Touch Apple iPhone4</name>
     <id>5</id>
   </link>
+  <link>
+    <name>LCD Samsung S3600</name>
+    <id>6</id>
+  </link>
+  <link>
+    <name>lcd nokia 5310</name>
+    <id>7</id>
+  </link>
+  <link>
+    <name>LCD Samsung i9100</name>
+    <id>8</id>
+  </link>
+  <link>
+    <name>LCD Nokia N73</name>
+    <id>9</id>
+  </link>
+  <link>
+    <name>Touch sonyericsson p1</name>
+    <id>23</id>
+  </link>
+  <link>
+    <name>LCD Sonyericsson w580</name>
+    <id>24</id>
+  </link>
+  <link>
+    <name>Touch Nokia x6</name>
+    <id>25</id>
+  </link>
+
+
+
+
 </pages>
