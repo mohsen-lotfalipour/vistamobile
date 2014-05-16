@@ -63,13 +63,22 @@ public class products
         return ds.Tables[0];
     }
 
-    public DataTable getproduct_brand(int id)
+    public DataTable getproduct_brand(string id)
     {
         string query = "SELECT * FROM product where brand_id='" + id.ToString() + "'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
     }
+
+    public DataTable getproduct_related_top(string name, string id)
+    {
+        string query = "SELECT TOP 4 * FROM product where name='" + name + "'AND ID !='" + id + "'";
+        DataSet ds = new DataSet();
+        ds = db.db_ExecuteQuery(query);
+        return ds.Tables[0];
+    }
+
     public DataTable getproduct_feature()
     {
         string query = "SELECT * FROM product where status='vip'";

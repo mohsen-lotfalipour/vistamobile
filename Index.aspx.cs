@@ -264,6 +264,7 @@ public partial class Home : System.Web.UI.Page
 
         }
     }
+
     protected void Addcart_Click(object sender, EventArgs e)
     {
 

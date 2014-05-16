@@ -54,12 +54,8 @@ public partial class shop : System.Web.UI.Page
             afiltercat.Attributes.Add("href", "#");
             afiltercat.Attributes.Add("data-target", ".filter--cat_id" + dr["id"]);
             afiltercat.Attributes.Add("class", "selectable");
-
             afiltercat.InnerHtml = "<i class=\"box\"></i>" + dr["name"].ToString();
-
             category_filter.Controls.Add(afiltercat);
-
-
         }
     }
 
@@ -70,11 +66,11 @@ public partial class shop : System.Web.UI.Page
         category cat = new category();
         brand brnd = new brand();
 
-        if (Request.QueryString["cat_id"] == null)
+        if (Request.QueryString["cat_id"] == null && Request.QueryString["brand_id"] == null)
         {
             dt = pr.getproduct();
         }
-        else
+        else if (Request.QueryString["cat_id"] != null && Request.QueryString["brand_id"] == null)
         {
             dt = pr.getproduct_cat(Request.QueryString["cat_id"].ToString());
             list_footer_menu.InnerHtml += "<li><span class=\"icon-chevron-left\"></span></li>";
@@ -83,6 +79,17 @@ public partial class shop : System.Web.UI.Page
             list_footer_menu.InnerHtml += "<li><a href=\"shop.aspx?cat_id=" + Request.QueryString["cat_id"].ToString() + "\">" + cat_name + "</a> </li>";
             tourStep2.InnerHtml = "";
         }
+        else if (Request.QueryString["cat_id"] == null && Request.QueryString["brand_id"] != null)
+        {
+            dt = pr.getproduct_brand(Request.QueryString["brand_id"].ToString());
+            list_footer_menu.InnerHtml += "<li><span class=\"icon-chevron-left\"></span></li>";
+
+            string brand_name = brnd.getbrandbyid(Request.QueryString["brand_id"].ToString()).Rows[0]["name"].ToString();
+            list_footer_menu.InnerHtml += "<li><a href=\"shop.aspx?brand_id=" + Request.QueryString["brand_id"].ToString() + "\">" + brand_name + "</a> </li>";
+            tourStep2.InnerHtml = "";
+
+        }
+
 
         foreach (DataRow list in dt.Rows)
         {
@@ -90,12 +97,10 @@ public partial class shop : System.Web.UI.Page
             string catname = cat.getcategory(list["cat_id"].ToString()).Rows[0]["name"].ToString();
             string brandname = brnd.getbrandbyid(list["brand_id"].ToString()).Rows[0]["name"].ToString();
 
-
             //Response.Write(catname);
             //Response.Write("-");
             //Response.Write(pname["name"].ToString());
             //Response.Write("-");
-
 
             HtmlGenericControl div = new HtmlGenericControl("div");
             // div.Attributes.Add("id", "p-item" + list["id"].ToString());
@@ -106,8 +111,6 @@ public partial class shop : System.Web.UI.Page
             div.Attributes.Add("data-color", "pink");
             div.Attributes.Add("data-brand", "brand_id" + list["brand_id"].ToString());
             //div.Attributes.Add("runat", "server");
-
-
 
 
             HtmlGenericControl divproduct = new HtmlGenericControl("div");
@@ -166,7 +169,7 @@ public partial class shop : System.Web.UI.Page
             HtmlAnchor aimgoverlay2 = new HtmlAnchor();
             aimgoverlay2.ID = "addtocart" + list["id"].ToString();
             aimgoverlay2.HRef = "#";
-            aimgoverlay2.Name = list["id"].ToString() + "," + list["price"].ToString() + "," + picname + "," + catname +  " - " + brandname + " - " + list["name"].ToString();
+            aimgoverlay2.Name = list["id"].ToString() + "," + list["price"].ToString() + "," + picname + "," + catname + " - " + brandname + " - " + list["name"].ToString();
             aimgoverlay2.ServerClick += new System.EventHandler(addtocart_click);
             aimgoverlay2.Attributes.Add("class", "btn buy btn-danger");
             aimgoverlay2.Attributes.Add("onclick", "addtocart('" + "p-img" + list["id"].ToString() + "');");
@@ -200,7 +203,7 @@ public partial class shop : System.Web.UI.Page
 
             HtmlGenericControl h5maintitle = new HtmlGenericControl("h5");
             h5maintitle.Attributes.Add("class", "no-margin isotope--title");
-            h5maintitle.InnerText =  String.Format("{0:#,##0}", list["price"]) + " ریال";
+            h5maintitle.InnerText = String.Format("{0:#,##0}", list["price"]) + " ریال";
             divmaintitle.Controls.Add(h5maintitle);
             divproduct.Controls.Add(divmaintitle);
             div.Controls.Add(divproduct);
