@@ -76,12 +76,11 @@
                     <!--  = Description=  -->
                     <!--  ==========  -->
                     <section class="blocks-spacer">
-                        <h5><span class="light">چطور</span> همه چیز شروع شد</h5>
+                        <h5><span class="light">ویستا موبایل</span> در سال 1385 آغاز به کار کرد</h5>
                         <p>  </p>
                         
-                        <h5><span class="light">چه</span> جریاناتی در پیش است</h5>
-                                      
-                        <h5><span class="light">و</span> امروز ما که هستیم!</h5>
+                                    
+                        <h5><span class="light">و</span>تا کنون به پیشرفت خود ادامه داده است</h5>
                     
                 	</section>
         </section> <!-- /main content -->

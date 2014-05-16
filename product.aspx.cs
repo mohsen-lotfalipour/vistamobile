@@ -47,6 +47,7 @@ public partial class product : System.Web.UI.Page
                 HtmlGenericControl li_shop_sp = new HtmlGenericControl("li");
                 HtmlGenericControl a1_sp = new HtmlGenericControl("span");
                 a1_sp.Attributes.Add("class", "icon-chevron-left");
+                a1_sp.InnerHtml = "&nbsp;";
                 li_shop_sp.Controls.Add(a1_sp);
                 adres.Controls.Add(li_shop_sp);
 
@@ -63,6 +64,7 @@ public partial class product : System.Web.UI.Page
                 HtmlGenericControl li_spliter2 = new HtmlGenericControl("li");
                 HtmlGenericControl a_sp2 = new HtmlGenericControl("span");
                 a_sp2.Attributes.Add("class", "icon-chevron-left");
+                a_sp2.InnerHtml = "&nbsp;";
                 li_spliter2.Controls.Add(a_sp2);
                 adres.Controls.Add(li_spliter2);
 
@@ -80,6 +82,7 @@ public partial class product : System.Web.UI.Page
                 HtmlGenericControl li_spliter1 = new HtmlGenericControl("li");
                 HtmlGenericControl a_sp = new HtmlGenericControl("span");
                 a_sp.Attributes.Add("class", "icon-chevron-left");
+                a_sp.InnerHtml = "&nbsp;";
                 li_spliter1.Controls.Add(a_sp);
                 adres.Controls.Add(li_spliter1);
 
