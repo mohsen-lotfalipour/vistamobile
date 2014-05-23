@@ -243,6 +243,14 @@ public partial class Main : System.Web.UI.MasterPage
     {
         contact_active.Attributes.Add("class", "active");
     }
+
+    public void set_register_error(string ErrorMessage)
+    {
+        logineErrorlable.Attributes.Add("class", "alert alert-danger in fade");
+        logineErrorlable.InnerHtml = "<button data-dismiss=\"alert\" class=\"close\" type=\"button\">×</button>" + ErrorMessage;
+        //logineErrorlable.InnerHtml += "";
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", String.Format("call_modal('loginModal');"), true);
+    }
     protected void submit_Click(object sender, EventArgs e)
     {
         //Response.Write(DateTime.Now.ToLocalTime().ToString());

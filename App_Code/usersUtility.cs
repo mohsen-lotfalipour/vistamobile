@@ -99,4 +99,27 @@ public class usersUtility
         ds = db.db_ExecuteQuery(sql);
         return ds.Tables[0];
     }
+
+    public static void update_user(string id,string fname,string lname,string phone,string mobile,string ostan,string city,string addres,string zip,string company)
+    {
+        string sql = @"UPDATE userinfo SET";
+        sql += " f_name='{0}',l_name='{1}',address='{2}',mobile='{3}',phone='{4}',zip_code='{5}',company='{6}',ostan='{7}',city='{8}' WHERE id='{9}'";
+        sql = String.Format(sql, fname, lname, addres, mobile, phone, zip, company, Int32.Parse(ostan), Int32.Parse(city),id);
+        db.db_ExecuteNonQuery(sql);
+    }
+    public static void update_user(string id,string fname, string lname, string phone, string mobile, string ostan, string city, string addres, string zip, string company,string email)
+    {
+        string sql = @"UPDATE userinfo SET";
+        sql += " f_name='{0}',l_name='{1}',address='{2}',mobile='{3}',phone='{4}',zip_code='{5}',company='{6}',ostan='{7}',city='{8}',email='{9}' WHERE id='{10}'";
+        sql = String.Format(sql, fname, lname, addres, mobile, phone, zip, company, Int32.Parse(ostan), Int32.Parse(city),email, id);
+        db.db_ExecuteNonQuery(sql);
+    }
+    public static void register_full(string fname, string lname, string phone, string mobile, string ostan, string city, string addres, string zip, string company, string email)
+    {
+        string sql = @"INSERT INTO userinfo (user_name,password,f_name,l_name,email,address,mobile,phone,zip_code,company,ostan,city)";
+        sql += " VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')";
+        sql = String.Format(sql, email, GenerateHash(mobile), fname, lname, email, addres, mobile, phone, zip,company, Int32.Parse(ostan), Int32.Parse(city));
+        db.db_ExecuteNonQuery(sql);
+    }
+
 }

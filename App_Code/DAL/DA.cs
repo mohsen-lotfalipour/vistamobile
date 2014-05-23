@@ -18,7 +18,15 @@ namespace vistamobile.DAL
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(CMD, con);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch
+            {
+                con.Close();
+                con.Open();
+            }
             da.Fill(ds);
             con.Close();
             return ds;
@@ -27,7 +35,15 @@ namespace vistamobile.DAL
         public bool db_ExecuteNonQuery(string q)
         {
             SqlCommand cmd = new SqlCommand(q, con);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch
+            {
+                con.Close();
+                con.Open();
+            }
             cmd.ExecuteNonQuery();
             con.Close();
             return true;
