@@ -30,6 +30,11 @@ public partial class Main : System.Web.UI.MasterPage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(Request.QueryString["login"]!=null && Request.QueryString["login"].Equals("true"))
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", String.Format("call_modal('loginModal');"), true);
+            
+        }
         if (i == 0)
         {
             initi();
@@ -101,7 +106,12 @@ public partial class Main : System.Web.UI.MasterPage
          if (usersUtility.login(username, password))
         {
             HttpContext.Current.Session.Add("login", username);
-            Response.Redirect(Request.UrlReferrer.ToString());
+            if (Request.UrlReferrer.ToString().Contains("login=true"))
+            {
+                Response.Redirect("index.aspx");
+            }
+            else
+                Response.Redirect(Request.UrlReferrer.ToString());
         }
         else
             ErrorMessage = "نام کاربری یا کلمه عبور صحیح نمی باشد";
@@ -243,6 +253,10 @@ public partial class Main : System.Web.UI.MasterPage
     {
         contact_active.Attributes.Add("class", "active");
     }
+    public void active_userpanel()
+    {
+        userpanel_active.Attributes.Add("class", "active");
+    }
 
     public void set_register_error(string ErrorMessage)
     {
@@ -258,5 +272,4 @@ public partial class Main : System.Web.UI.MasterPage
         //ScriptManager.RegisterStartupScript(this, this.GetType(), "timeout", String.Format("call_modal('{0}');", "salam"), true);
         ScriptManager.RegisterStartupScript(this, this.GetType(), "LaunchServerSide", "$(function() { LoginFail(); });", true);
     }
-
 }

@@ -36,4 +36,12 @@ public class order
         }
 
     }
+
+    public DataTable get_user_order(string user_id)
+    {
+        string query = "SELECT * FROM order_buy Where user_id=" + user_id;
+        DataSet ds = new DataSet();
+        ds = db.db_ExecuteQuery(query);
+        return ds.Tables[0];
+    }
 }

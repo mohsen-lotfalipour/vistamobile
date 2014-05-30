@@ -122,4 +122,19 @@ public class usersUtility
         db.db_ExecuteNonQuery(sql);
     }
 
+    public static void update_user(string id, string new_pass)
+    {
+        string sql = @"UPDATE userinfo SET";
+        sql += " password='{0}' WHERE id='{1}'";
+        sql = String.Format(sql, GenerateHash(new_pass.Trim()), id);
+        db.db_ExecuteNonQuery(sql);
+    }
+    public static void update_user(string id, string new_pass, string username)
+    {
+        string sql = @"UPDATE userinfo SET";
+        sql += " password='{0}',user_name='{1}' WHERE id='{2}'";
+        sql = String.Format(sql, GenerateHash(new_pass.Trim()),username, id);
+        db.db_ExecuteNonQuery(sql);
+    }
+
 }

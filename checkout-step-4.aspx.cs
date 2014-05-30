@@ -63,6 +63,11 @@ public partial class checkout_step_4 : System.Web.UI.Page
             tdqty.Controls.Add(divnumber);
             tr.Controls.Add(tdqty);//finish td by class qty
 
+            HtmlGenericControl td_unit_price = new HtmlGenericControl("td");
+            td_unit_price.Attributes.Add("class", "price");
+            td_unit_price.InnerText = dr["price"].ToString() + "  ریال  ";
+            tr.Controls.Add(td_unit_price);//finish td price
+
             HtmlGenericControl tdprice = new HtmlGenericControl("td");
             tdprice.Attributes.Add("class", "price");
             tdprice.InnerText = ((Int32)dr["price"] * (Int16)dr["number"]).ToString() + "  ریال  ";

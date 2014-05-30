@@ -104,7 +104,9 @@
 							    	<tr>
 							    		<th colspan="2">مشخصات محصول</th>
 							    		<th><div class="align-center">تعداد</div></th>
-							    		<th><div class="align-right">قيمت</div></th>
+							    		<th><div class="align-right">قيمت واحد </div></th>
+                                        <th><div class="align-right">قيمت</div></th>
+
 							    	</tr>
 							    </thead>
 							    <tbody>
@@ -112,7 +114,7 @@
 							       
                                      </p>
 							        <tr>
-							        	<td colspan="2" rowspan="2">
+							        	<td colspan="3" rowspan="3">
 							        	    &nbsp;
 							        	</td>
 							        	<td class="stronger">هزينه ارسال :</td>

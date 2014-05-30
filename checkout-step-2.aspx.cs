@@ -13,7 +13,6 @@ public partial class checkout_step_2 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         ScriptManager.RegisterStartupScript(this, this.GetType(), "timeout", String.Format("disable_remove();"), true);
-
         if (Session["login"] != null)
         {
             initpage();
@@ -86,6 +85,7 @@ public partial class checkout_step_2 : System.Web.UI.Page
             else
             {
                 usersUtility.register_full(Request.Form["ctl00$MainContent$firstName"], Request.Form["ctl00$MainContent$lastName"], Request.Form["ctl00$MainContent$telephone"], Request.Form["ctl00$MainContent$mobile"], Request.Form["ctl00$MainContent$ostan_id"], Request.Form["ctl00$MainContent$city_id"], Request.Form["ctl00$MainContent$addr1"], Request.Form["ctl00$MainContent$zip"], Request.Form["ctl00$MainContent$company"], Request.Form["ctl00$MainContent$email"]);
+                Session["login"] = Request.Form["ctl00$MainContent$email"];
             }
 
         }
