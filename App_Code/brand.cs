@@ -32,4 +32,15 @@ public class brand
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
     }
+
+    public string getbrandbyid(int p)
+    {
+        string query = "SELECT name FROM brand Where id=" + p;
+        DataSet ds = new DataSet();
+        ds = db.db_ExecuteQuery(query);
+        return ds.Tables[0].Rows[0].ToString();
+               
+        
+        //throw new NotImplementedException();
+    }
 }
