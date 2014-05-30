@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="checkout-step-3.aspx.cs" Inherits="checkout_step_3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true"
+    CodeFile="checkout-step-3.aspx.cs" Inherits="checkout_step_3" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-     <!--  ==========  -->
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
     <div class="darker-stripe">
@@ -11,38 +12,25 @@
             <div class="row">
                 <div class="span12">
                     <ul class="breadcrumb">
-                        <li>
-                            <a href="index.aspx">صفحه اصلی</a>
-                        </li>
+                        <li><a href="index.aspx">صفحه اصلی</a> </li>
                         <li><span class="icon-chevron-left"></span></li>
-                        <li>
-                            <a href="checkout-step-1.aspx">بازبینی سبد خرید</a>
-                        </li>
+                        <li><a href="checkout-step-1.aspx">بازبینی سبد خرید</a> </li>
                         <li><span class="icon-chevron-left"></span></li>
-                        <li>
-                            <a href="checkout-step-2.aspx">آدرس ارسال و پرداخت</a>
-                        </li>
-                         <li><span class="icon-chevron-left"></span></li>
-                        <li>
-                            <a href="checkout-step-3.aspx">شیوه پرداخت</a>
-                        </li>
-
+                        <li><a href="checkout-step-2.aspx">آدرس ارسال و پرداخت</a> </li>
+                        <li><span class="icon-chevron-left"></span></li>
+                        <li><a href="checkout-step-3.aspx">شیوه پرداخت</a> </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>     
-
-    
-    
+    </div>
     <div class="container">
-    <div class="push-up blocks-spacer">
-        <div class="row">
-            
-            <!--  ==========  -->
-            <!--  = Main content =  -->
-            <!--  ==========  -->
-            <section class="span12">
+        <div class="push-up blocks-spacer">
+            <div class="row">
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span12">
                 
                 <div class="checkout-container">
                     <div class="row">
@@ -83,7 +71,7 @@
                     		    	    <a href="checkout-step-2.html">آدرس ارسال</a>
                     		    	</div>
                     		    	<div class="step active">
-                                        <div class="step-badge">2</div>
+                                        <div class="step-badge">3</div>
                                         شيوه پرداخت
                                     </div>
                     		    	<div class="step">
@@ -96,7 +84,7 @@
 						    <!--  ==========  -->
 							<!--  = Payment =  -->
 							<!--  ==========  -->
-							<span class="btn btn-danger circle pull-left"><i class="icon-chevron-down"></i></span>
+							<%--<span class="btn btn-danger circle pull-left"><i class="icon-chevron-down"></i></span>
 							<div class="shifted-left-45 clearfix">
 							    <h3 class="no-margin"><span class="light">کارت</span> اعتباري</h3>
 							    <p class="push-down-30">مسترکارت، ويزا و امريکن اکسپرس قابل قبول هستند.</p>
@@ -162,23 +150,32 @@
                                         </div>
                                     </div>
                                 </form>
-							</div>
+							</div>--%>
 							
+
 							<hr />
 							
-							<span class="btn btn-danger circle pull-left"><i class="icon-chevron-right"></i></span>
 							<div class="shifted-left-45 clearfix">
                                 <h3 class="no-margin">
-                                    <span class="light">پي پل</span> &nbsp; &nbsp; &nbsp; 
-                                    <a href="#"><img src="images/buttons/paypal.gif" alt="PayPal" width="145" height="42" /></a>
+                                     <input type = "radio" name = "payment"id = "offline_pay"value = "offline_pay"checked = "checked" />
+                                     <span class="light">پرداخت در هنگام تحویل</span> &nbsp; &nbsp; &nbsp;
+                                
+                            </div>
+                            
+							<hr />
+                            <div class="shifted-left-45 clearfix">
+                                <h3 class="no-margin">
+                                  <input type = "radio" name = "payment" id = "online_pay" value = "online_pay" />
+                                     <span class="light">پرداخت آنلاین</span> &nbsp; &nbsp; &nbsp;
                                 </h3>
+                                
                             </div>
                             
                             <hr />
 						    
 						    <p class="right-align">
 						        در مرحله بعدي شما قادر هستيد سفارشتان را بازبيني کرده و آن را تاييد کنيد &nbsp; &nbsp;
-						        <a href="checkout-step-4.aspx " class="btn btn-primary higher bold">ادامه</a>
+						         <input type="submit"  class="btn btn-primary higher bold" onserverclick="Acceptpayment_Click" id="accept_peyment_step3" runat="server" clientidmode="Static"  value="ادامه" />
 						    </p>
 							    
 							    
@@ -187,12 +184,10 @@
                 </div>
                 
                 
-            </section> <!-- /main content -->
-        
+            </section>
+                <!-- /main content -->
+            </div>
         </div>
-        </div>
-    </div> <!-- /container -->
-    
-
+    </div>
+    <!-- /container -->
 </asp:Content>
-

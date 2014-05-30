@@ -11,4 +11,9 @@ public partial class checkout_step_3 : System.Web.UI.Page
     {
         ScriptManager.RegisterStartupScript(this, this.GetType(), "timeout", String.Format("disable_remove();"), true);
     }
+    protected void Acceptpayment_Click(object sender, EventArgs e)
+    {
+        Session["payment"]=Request.Form["payment"];
+        Response.Redirect("checkout-step-4.aspx");
+    }
 }

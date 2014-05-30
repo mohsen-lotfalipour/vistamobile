@@ -109,57 +109,9 @@
 							    </thead>
 							    <tbody>
 							          <p id="table_body_final" runat="server">	
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-1.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
-							        	<td class="qty">
-							        	    3					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-2.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
-							        	<td class="qty">
-							        	    4					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-3.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
-							        	<td class="qty">
-							        	    2					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-4.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
-							        	<td class="qty">
-							        	    4					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-5.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
-							        	<td class="qty">
-							        	    2					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
+							       
                                      </p>
-							        							        <tr>
+							        <tr>
 							        	<td colspan="2" rowspan="2">
 							        	    &nbsp;
 							        	</td>
@@ -175,7 +127,7 @@
 							</table>
 							
 							<p class="right-align">
-							    <a href="index.aspx" class="btn btn-primary higher bold">تاييد و پرداخت</a>
+							    <a href= "#" class="btn btn-primary higher bold" runat="server" onserverclick="Acceptfinal_Click">تاييد و پرداخت</a>
 							</p>
                     	</div>
                     </div>

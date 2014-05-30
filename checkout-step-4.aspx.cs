@@ -73,4 +73,35 @@ public partial class checkout_step_4 : System.Web.UI.Page
         send_price_final.InnerText = Session["send_price"].ToString();
         total_price_final.InnerText = (total_price + int.Parse(Session["send_price"].ToString())).ToString() + "  ریال  ";
     }
+
+    protected void Acceptfinal_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            DataTable cart = Session["cart"] as DataTable;
+            string payment = Session["payment"].ToString();
+            string user = Session["login"].ToString();
+            int total_price = (int.Parse(Session["total_price_cart"].ToString()) + int.Parse(Session["send_price"].ToString()));
+            order or = new order();
+            if (user != null && payment != null && cart != null)
+            {
+                if (payment.Equals("online_pay"))
+                {
+                    //online pay connect tobanck
+                }
+                else
+                {
+                    or.create_order(cart, user, payment, total_price);
+                }
+
+            }
+            Response.Redirect("index.aspx");
+        }
+         catch
+            {
+            Response.Redirect("index.aspx");
+             }
+        }
+     
+
 }
