@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mobile_hardwareModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="mobile_hardwareModelStoreContainer">
+          <EntitySet Name="brand" EntityType="mobile_hardwareModel.Store.brand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="category" EntityType="mobile_hardwareModel.Store.category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="order" EntityType="mobile_hardwareModel.Store.order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="orderlist" EntityType="mobile_hardwareModel.Store.orderlist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pic" EntityType="mobile_hardwareModel.Store.pic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="product" EntityType="mobile_hardwareModel.Store.product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="mobile_hardwareModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="userinfo" EntityType="mobile_hardwareModel.Store.userinfo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_order_userinfo" Association="mobile_hardwareModel.Store.FK_order_userinfo">
+            <End Role="userinfo" EntitySet="userinfo" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderlist_order" Association="mobile_hardwareModel.Store.FK_orderlist_order">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderlist" EntitySet="orderlist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderlist_product" Association="mobile_hardwareModel.Store.FK_orderlist_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="orderlist" EntitySet="orderlist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pic_product" Association="mobile_hardwareModel.Store.FK_pic_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="pic" EntitySet="pic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_brand" Association="mobile_hardwareModel.Store.FK_product_brand">
+            <End Role="brand" EntitySet="brand" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_category" Association="mobile_hardwareModel.Store.FK_product_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" />
+          <Property Name="peymant" Type="nvarchar" MaxLength="30" />
+          <Property Name="date" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="count" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderlist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="movjodi" Type="int" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="detail" Type="nvarchar" MaxLength="50" />
+          <Property Name="cat_id" Type="int" Nullable="false" />
+          <Property Name="brand_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="f_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="l_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="zip_code" Type="nvarchar" MaxLength="15" />
+          <Property Name="company" Type="nvarchar" MaxLength="20" />
+          <Property Name="is_admin" Type="bit" />
+          <Property Name="percent_price" Type="smallint" />
+          <Property Name="is_off" Type="bit" />
+        </EntityType>
+        <Association Name="FK_order_userinfo">
+          <End Role="userinfo" Type="mobile_hardwareModel.Store.userinfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="mobile_hardwareModel.Store.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userinfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderlist_order">
+          <End Role="order" Type="mobile_hardwareModel.Store.order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderlist" Type="mobile_hardwareModel.Store.orderlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="orderlist">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderlist_product">
+          <End Role="product" Type="mobile_hardwareModel.Store.product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderlist" Type="mobile_hardwareModel.Store.orderlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="orderlist">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pic_product">
+          <End Role="product" Type="mobile_hardwareModel.Store.product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pic" Type="mobile_hardwareModel.Store.pic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pic">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_brand">
+          <End Role="brand" Type="mobile_hardwareModel.Store.brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="mobile_hardwareModel.Store.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_category">
+          <End Role="category" Type="mobile_hardwareModel.Store.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="mobile_hardwareModel.Store.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mobile_hardwareModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="mobile_hardwareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="brands" EntityType="mobile_hardwareModel.brand" />
+          <EntitySet Name="categories" EntityType="mobile_hardwareModel.category" />
+          <EntitySet Name="orders" EntityType="mobile_hardwareModel.order" />
+          <EntitySet Name="orderlists" EntityType="mobile_hardwareModel.orderlist" />
+          <EntitySet Name="pics" EntityType="mobile_hardwareModel.pic" />
+          <EntitySet Name="products" EntityType="mobile_hardwareModel.product" />
+          <EntitySet Name="sysdiagrams" EntityType="mobile_hardwareModel.sysdiagram" />
+          <EntitySet Name="userinfoes" EntityType="mobile_hardwareModel.userinfo" />
+          <AssociationSet Name="FK_product_brand" Association="mobile_hardwareModel.FK_product_brand">
+            <End Role="brand" EntitySet="brands" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_category" Association="mobile_hardwareModel.FK_product_category">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_userinfo" Association="mobile_hardwareModel.FK_order_userinfo">
+            <End Role="userinfo" EntitySet="userinfoes" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderlist_order" Association="mobile_hardwareModel.FK_orderlist_order">
+            <End Role="order" EntitySet="orders" />
+            <End Role="orderlist" EntitySet="orderlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderlist_product" Association="mobile_hardwareModel.FK_orderlist_product">
+            <End Role="product" EntitySet="products" />
+            <End Role="orderlist" EntitySet="orderlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pic_product" Association="mobile_hardwareModel.FK_pic_product">
+            <End Role="product" EntitySet="products" />
+            <End Role="pic" EntitySet="pics" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="products" Relationship="mobile_hardwareModel.FK_product_brand" FromRole="brand" ToRole="product" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="products" Relationship="mobile_hardwareModel.FK_product_category" FromRole="category" ToRole="product" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="peymant" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="count" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="userinfo" Relationship="mobile_hardwareModel.FK_order_userinfo" FromRole="order" ToRole="userinfo" />
+          <NavigationProperty Name="orderlists" Relationship="mobile_hardwareModel.FK_orderlist_order" FromRole="order" ToRole="orderlist" />
+        </EntityType>
+        <EntityType Name="orderlist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="mobile_hardwareModel.FK_orderlist_order" FromRole="orderlist" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="mobile_hardwareModel.FK_orderlist_product" FromRole="orderlist" ToRole="product" />
+        </EntityType>
+        <EntityType Name="pic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="product" Relationship="mobile_hardwareModel.FK_pic_product" FromRole="pic" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="movjodi" Type="Int32" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cat_id" Type="Int32" Nullable="false" />
+          <Property Name="brand_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="brand" Relationship="mobile_hardwareModel.FK_product_brand" FromRole="product" ToRole="brand" />
+          <NavigationProperty Name="category" Relationship="mobile_hardwareModel.FK_product_category" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="orderlists" Relationship="mobile_hardwareModel.FK_orderlist_product" FromRole="product" ToRole="orderlist" />
+          <NavigationProperty Name="pics" Relationship="mobile_hardwareModel.FK_pic_product" FromRole="product" ToRole="pic" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="f_name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="l_name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="mobile" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="zip_code" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="company" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="is_admin" Type="Boolean" />
+          <Property Name="percent_price" Type="Int16" />
+          <Property Name="is_off" Type="Boolean" />
+          <NavigationProperty Name="orders" Relationship="mobile_hardwareModel.FK_order_userinfo" FromRole="userinfo" ToRole="order" />
+        </EntityType>
+        <Association Name="FK_product_brand">
+          <End Role="brand" Type="mobile_hardwareModel.brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="mobile_hardwareModel.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_category">
+          <End Role="category" Type="mobile_hardwareModel.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="mobile_hardwareModel.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_userinfo">
+          <End Role="userinfo" Type="mobile_hardwareModel.userinfo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="mobile_hardwareModel.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userinfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderlist_order">
+          <End Role="order" Type="mobile_hardwareModel.order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderlist" Type="mobile_hardwareModel.orderlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="orderlist">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderlist_product">
+          <End Role="product" Type="mobile_hardwareModel.product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderlist" Type="mobile_hardwareModel.orderlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="orderlist">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pic_product">
+          <End Role="product" Type="mobile_hardwareModel.product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pic" Type="mobile_hardwareModel.pic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pic">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mobile_hardwareModelStoreContainer" CdmEntityContainer="mobile_hardwareEntities">
+          <EntitySetMapping Name="brands"><EntityTypeMapping TypeName="mobile_hardwareModel.brand"><MappingFragment StoreEntitySet="brand">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="categories"><EntityTypeMapping TypeName="mobile_hardwareModel.category"><MappingFragment StoreEntitySet="category">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="orders"><EntityTypeMapping TypeName="mobile_hardwareModel.order"><MappingFragment StoreEntitySet="order">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user_id" ColumnName="user_id" />
+            <ScalarProperty Name="status" ColumnName="status" />
+            <ScalarProperty Name="peymant" ColumnName="peymant" />
+            <ScalarProperty Name="date" ColumnName="date" />
+            <ScalarProperty Name="count" ColumnName="count" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="orderlists"><EntityTypeMapping TypeName="mobile_hardwareModel.orderlist"><MappingFragment StoreEntitySet="orderlist">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="product_id" ColumnName="product_id" />
+            <ScalarProperty Name="order_id" ColumnName="order_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="pics"><EntityTypeMapping TypeName="mobile_hardwareModel.pic"><MappingFragment StoreEntitySet="pic">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="product_id" ColumnName="product_id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="products"><EntityTypeMapping TypeName="mobile_hardwareModel.product"><MappingFragment StoreEntitySet="product">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="movjodi" ColumnName="movjodi" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="detail" ColumnName="detail" />
+            <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+            <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="mobile_hardwareModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="userinfoes"><EntityTypeMapping TypeName="mobile_hardwareModel.userinfo"><MappingFragment StoreEntitySet="userinfo">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user_name" ColumnName="user_name" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="f_name" ColumnName="f_name" />
+            <ScalarProperty Name="l_name" ColumnName="l_name" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="mobile" ColumnName="mobile" />
+            <ScalarProperty Name="phone" ColumnName="phone" />
+            <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+            <ScalarProperty Name="company" ColumnName="company" />
+            <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+            <ScalarProperty Name="percent_price" ColumnName="percent_price" />
+            <ScalarProperty Name="is_off" ColumnName="is_off" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="VistaMobile_Model">
+        <EntityTypeShape EntityType="mobile_hardwareModel.brand" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.category" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.order" Width="1.5" PointX="3" PointY="8.25" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.orderlist" Width="1.5" PointX="5.25" PointY="3.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.pic" Width="1.5" PointX="5.25" PointY="6.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.product" Width="1.5" PointX="3" PointY="2.875" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="mobile_hardwareModel.userinfo" Width="1.5" PointX="0.75" PointY="7.625" Height="3.9033007812500005" IsExpanded="true" />
+        <AssociationConnector Association="mobile_hardwareModel.FK_product_brand" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.547841796875" />
+          <ConnectorPoint PointX="3" PointY="4.547841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="mobile_hardwareModel.FK_product_category" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="3.75" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="3.75" PointY="2.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="mobile_hardwareModel.FK_order_userinfo" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.5285953776041659" />
+          <ConnectorPoint PointX="3" PointY="9.5285953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="mobile_hardwareModel.FK_orderlist_order" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.2511528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="7.8761528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="4.4901432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="4.4901432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="mobile_hardwareModel.FK_orderlist_product" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.9325716145833334" />
+          <ConnectorPoint PointX="5.25" PointY="3.9325716145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="mobile_hardwareModel.FK_pic_product" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="6.201396484375" />
+          <ConnectorPoint PointX="3.75" PointY="7.2689925130208337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.2689925130208328" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.2689925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="7.2689925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
