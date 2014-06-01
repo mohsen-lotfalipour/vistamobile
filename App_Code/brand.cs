@@ -19,7 +19,7 @@ public class brand
 
     public DataTable getbrand()
     {
-        string query = "SELECT * FROM brand";
+        string query = "SELECT * FROM vm_brand";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -27,7 +27,7 @@ public class brand
 
     public DataTable getbrandbyid(string id)
     {
-        string query = "SELECT name FROM brand Where id=" + id;
+        string query = "SELECT name FROM vm_brand Where id=" + id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -35,7 +35,7 @@ public class brand
 
     public string getbrandbyid(int p)
     {
-        string query = "SELECT name FROM brand Where id=" + p;
+        string query = "SELECT name FROM vm_brand Where id=" + p;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0].Rows[0].ToString();

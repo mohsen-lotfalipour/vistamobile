@@ -86,7 +86,7 @@ public partial class shop : System.Web.UI.Page
 
             string brand_name = brnd.getbrandbyid(Request.QueryString["brand_id"].ToString()).Rows[0]["name"].ToString();
             list_footer_menu.InnerHtml += "<li><a href=\"shop.aspx?brand_id=" + Request.QueryString["brand_id"].ToString() + "\">" + brand_name + "</a> </li>";
-            tourStep2.InnerHtml = "";
+            tourStep3.InnerHtml = "";
 
         }
 

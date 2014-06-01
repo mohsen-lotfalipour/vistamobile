@@ -23,13 +23,13 @@ public class order
         Random r = new Random();
         string user_id = u.getUser(user).Rows[0]["id"].ToString();
         string id = Date.Replace("/", "") + r.Next(0, 9) + total_price.ToString() + r.Next(0, 9)+user_id;
-        string sql = @"INSERT INTO order_buy (id,user_id,peyment,date,totalprice)";
+        string sql = @"INSERT INTO vm_order_buy (id,user_id,peyment,date,totalprice)";
         sql += " VALUES('{0}','{1}','{2}','{3}','{4}')";
         sql = String.Format(sql, id,user_id, peyment, Date,total_price);
         db.db_ExecuteNonQuery(sql);
         foreach (DataRow dr in cart.Rows)
         {
-            sql = @"INSERT INTO orderlist (product_id,order_id,count)";
+            sql = @"INSERT INTO vm_orderlist (product_id,order_id,count)";
             sql += " VALUES('{0}','{1}','{2}')";
             sql = String.Format(sql, dr["id"], id, dr["number"]);
             db.db_ExecuteNonQuery(sql);
@@ -39,7 +39,7 @@ public class order
 
     public DataTable get_user_order(string user_id)
     {
-        string query = "SELECT * FROM order_buy Where user_id=" + user_id;
+        string query = "SELECT * FROM vm_order_buy Where user_id=" + user_id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];

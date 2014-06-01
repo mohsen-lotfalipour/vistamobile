@@ -16,12 +16,12 @@ public partial class product : System.Web.UI.Page
     {
         string id = Request.QueryString["id"];
         int i = 0;
+        DataTable dt = new DataTable();
         if (id != null)
         {
             category cat = new category();
             brand brnd = new brand();
             products pro = new products();
-            DataTable dt = new DataTable();
             dt = pro.getproductbyid(Convert.ToInt16(id));
             string pro_name = dt.Rows[0]["name"].ToString();
 
@@ -106,6 +106,7 @@ public partial class product : System.Web.UI.Page
                   */
 
 
+
                 //--------------------
                 foreach (DataRow list in pname.Rows)
                 {
@@ -179,7 +180,7 @@ public partial class product : System.Web.UI.Page
 
             product_status.Controls.Add(span_status);
 
-
+           
 
 
             //foreach (DataRow list in pname.Rows)
@@ -209,6 +210,18 @@ public partial class product : System.Web.UI.Page
             //    i++;
 
             //}
+           
+            HtmlAnchor a_addtocart = new HtmlAnchor();
+            a_addtocart.ID = "addtocart" + dt.Rows[0]["id"].ToString();
+            a_addtocart.HRef = "#";
+            a_addtocart.Name = dt.Rows[0]["id"].ToString() + "," + dt.Rows[0]["price"].ToString() + "," + picname + "," + catname + " - " + brandname + " - " + dt.Rows[0]["name"].ToString();
+            a_addtocart.ServerClick += new System.EventHandler(Addcart_Click);
+            a_addtocart.Attributes.Add("class", "btn buy btn-danger");
+            a_addtocart.Attributes.Add("onclick", "addtocart('MainContent_mainPreviewImg');");
+            a_addtocart.InnerText = "اضافه به سبد خرید";
+            UpdatePanel up = new UpdatePanel();
+            up.ContentTemplateContainer.Controls.Add(a_addtocart);
+            addtocart_detail.Controls.Add(up);
             set_related(pro_name, id);
         }
         else

@@ -18,14 +18,14 @@ public class category
 
     public DataTable getcategory()
     {
-        string query = "SELECT * FROM category";
+        string query = "SELECT * FROM vm_category";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
     }
     public DataTable getcategory(string id)
     {
-        string query = "SELECT name FROM category Where id=" + id;
+        string query = "SELECT name FROM vm_category Where id=" + id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];

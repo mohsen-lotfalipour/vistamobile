@@ -57,7 +57,7 @@
                          <!--  ==========  -->
                         <!--  = Brand filter =  -->
                         <!--  ==========  -->
-                        <div class="accordion-group">
+                        <div class="accordion-group" id="tourStep3" runat="server" clientidmode="static">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" href="#filterFour">برند <b class="caret"></b></a>
                             </div>

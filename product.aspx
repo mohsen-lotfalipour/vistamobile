@@ -61,11 +61,11 @@
                         <!--  ==========  -->
                         <!--  = Add to cart form =  -->
                         <!--  ==========  -->
-                        <form action="#" class="form form-inline clearfix">
-                        <div class="numbered" style="text-align: center">
+                    <%--    <form action="#" class="form form-inline clearfix">--%>
+                      <%--  <div class="numbered" style="text-align: center">
                             <input type="text" name="num" value="1" class="tiny-size" />
                             <span class="clickable add-one icon-plus-sign-alt"></span>&nbsp;<span class="clickable remove-one icon-minus-sign-alt">
-                            </span>&nbsp;
+                            </span>&nbsp;--%>
                             <%-- <select name="color" class="span2">
                             <option value="-1">انتخاب رنگ</option>
                             <option value="blue">آبی</option>
@@ -82,11 +82,14 @@
                             <option value="XL">خیلی بزرگ</option>
                             <option value="XXL">خیلی خیلی بزرگ</option>
                         </select>--%>
-                            <button class="btn btn-danger pull-right">
-                                <i class="icon-shopping-cart"></i>اضافه به سبد خرید</button>
-                        </div>
-                        </form>
-                        <hr />
+                           <%-- <button class="btn btn-danger">
+                                <i class="icon-shopping-cart"></i>اضافه به سبد خرید</button>--%>
+                                <div id="addtocart_detail" runat="server" clientidmode="Static" class="btn btn-danger">
+                                 <i class="icon-shopping-cart"></i>
+                                </div>
+                    <%--    </div>--%>
+                     <%--   </form>--%>
+                      <%--  <hr />--%>
                     </div>
                 </div>
             </div>

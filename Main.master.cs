@@ -108,7 +108,7 @@ public partial class Main : System.Web.UI.MasterPage
             HttpContext.Current.Session.Add("login", username);
             if (Request.UrlReferrer.ToString().Contains("login=true"))
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect("userpanel.aspx");
             }
             else
                 Response.Redirect(Request.UrlReferrer.ToString());

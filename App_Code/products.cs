@@ -22,7 +22,7 @@ public class products
 
     public DataTable getproduct()
     {
-        string query = "SELECT * FROM product";
+        string query = "SELECT * FROM vm_product";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -30,7 +30,7 @@ public class products
 
     public DataTable getpic(int id)
     {
-        string query = "SELECT TOP 3 name FROM pic Where product_id=" + id;
+        string query = "SELECT TOP 3 name FROM vm_pic Where product_id=" + id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -38,7 +38,7 @@ public class products
 
     public DataTable getonepic(int id)
     {
-        string query = "SELECT TOP 1 name FROM pic Where product_id=" + id;
+        string query = "SELECT TOP 1 name FROM vm_pic Where product_id=" + id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -46,7 +46,7 @@ public class products
 
     public DataTable getproductbyid(int id)
     {
-        string query = "SELECT * FROM product Where id=" + id;
+        string query = "SELECT * FROM vm_product Where id=" + id;
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -57,7 +57,7 @@ public class products
 
     public DataTable getproduct_cat(string id)
     {
-        string query = "SELECT * FROM product where cat_id='" + id.ToString() + "'";
+        string query = "SELECT * FROM vm_product where cat_id='" + id.ToString() + "'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -65,7 +65,7 @@ public class products
 
     public DataTable getproduct_brand(string id)
     {
-        string query = "SELECT * FROM product where brand_id='" + id.ToString() + "'";
+        string query = "SELECT * FROM vm_product where brand_id='" + id.ToString() + "'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -73,7 +73,7 @@ public class products
 
     public DataTable getproduct_related_top(string name, string id)
     {
-        string query = "SELECT TOP 4 * FROM product where name='" + name + "'AND ID !='" + id + "'";
+        string query = "SELECT TOP 4 * FROM vm_product where name='" + name + "'AND ID !='" + id + "'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
@@ -81,14 +81,14 @@ public class products
 
     public DataTable getproduct_feature()
     {
-        string query = "SELECT * FROM product where status='vip'";
+        string query = "SELECT * FROM vm_product where status='vip'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
     }
     public DataTable getproduct_new()
     {
-        string query = "SELECT * FROM product where status='new'";
+        string query = "SELECT * FROM vm_product where status='new'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
