@@ -20,7 +20,7 @@ public class orderlist
     public DataTable get_product_order(string order_id)
     {
         // product.id,product.name,product.price,orderlist.count
-        string query = "SELECT * FROM product INNER JOIN orderlist ON orderlist.product_id=product.id Where orderlist.order_id='" + order_id+"'";
+        string query = "SELECT * FROM product INNER JOIN vm_orderlist ON orderlist.product_id=product.id Where orderlist.order_id='" + order_id+"'";
         DataSet ds = new DataSet();
         ds = db.db_ExecuteQuery(query);
         return ds.Tables[0];
