@@ -1,0 +1,232 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+    <!--  = Bootstrap =  -->
+   
+    <meta charset="utf-8">
+    <title>فروشگاه آنلاین قطعات موبایل - ویستا موبایل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ProteusThemes">
+    <!--  Google Fonts  -->
+    <%-- <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>--%>
+    <!-- Twitter Bootstrap -->
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="../stylesheets/responsive.css" rel="stylesheet">
+    <!-- Slider Revolution -->
+    <link rel="stylesheet" href="../js/rs-plugin/css/settings.css" type="text/css" />
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../js/jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.min.css"
+        type="text/css" />
+    <!-- PrettyPhoto -->
+    <link rel="stylesheet" href="../js/prettyphoto/css/prettyPhoto.css" type="text/css" />
+    <!-- main styles -->
+    <link href="../stylesheets/main.css" rel="stylesheet">
+    <!-- Modernizr -->
+  
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/apple-touch/144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/apple-touch/114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/apple-touch/72.png">
+    <link rel="apple-touch-icon-precomposed" href="../images/apple-touch/57.png">
+    <link rel="shortcut icon" href="../images/apple-touch/57.png">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<!----------------------------------------------------------------------- -->
+<body class="">
+  
+    <div class="master-wrapper">
+        <!--  ==========  -->
+        <!--  = Header =  -->
+        <!--  ==========  -->
+        <header id="header">
+        <div class="container">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Logo =  -->
+                <!--  ==========  -->
+                <div class="span7">
+                    <a class="brand" href="Index.aspx">
+                        <img src="../images/logo.png" alt="Webmarket Logo" width="48" height="48" /> 
+                        <span class="pacifico">Vista Mobile</span> 
+                        <span class="tagline">پنل مدیریت فروشگاه آنلاین قطعات تعمیرات موبایل</span> 
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+        <!--  ==========  -->
+        <!--  = Main Menu / navbar =  -->
+        <!--  ==========  -->
+        <div class="navbar navbar-static-top" id="stickyNavbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="span9">
+                            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">
+                                </span>
+                            </button>
+                            <!--  ==========  -->
+                            <!--  = Menu =  -->
+                            <!--  ==========  -->
+                            <div class="nav-collapse collapse">
+                                <ul class="nav" id="mainNavigation">
+                                    <li id="index_active" runat="server"><a href="Index.aspx">صفحه اصلی</a></li>
+                                        <li id="Li1" runat="server"><a href="about-us.aspx">مدیریت سفارشات</a></li>
+                                    <li id="about_active" runat="server"><a href="about-us.aspx">مدیریت محصولات</a></li>
+                                    <li id="contact_active" runat="server"><a href="contact.aspx">مدیریت برندها </a></li>
+                                     <li id="Li2" runat="server"><a href="about-us.aspx">مدیریت دسته بندی ها </a></li>
+                                    <li id="userpanel_active" runat="server"><a href="userpanel.aspx">مدیریت کاربران</a></li>
+                                </ul>
+                                <!--  ==========  -->
+                                <!--  = Search form =  -->
+                                <!--  ==========  -->
+                             
+                            </div>
+                            <!-- /.nav-collapse -->
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /main menu -->
+        <!-- Site Content -->
+        <!-- Site Content -->
+         <form id="Form1" runat=server>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+       
+        </asp:ContentPlaceHolder>
+        
+        </form>
+        <!-- /Site Content -->
+        <!-- /Site Content -->
+        <!--  ==========  -->
+        <!--  ==========  -->
+        <!--  = Footer =  -->
+        <!--  ==========  -->
+        <footer>
+        
+
+        <!--  ==========  -->
+        <!--  = Upper footer =  -->
+        <!--  ==========  -->
+
+        <!-- /upper footer -->
+        
+        <!--  ==========  -->
+        <!--  = Middle footer =  -->
+        <!--  ==========  -->
+        <div class="foot-dark">
+            <div class="container">
+                <div class="row">
+                    
+                    <!--  ==========  -->
+                    <!--  = Menu 1 =  -->
+                    <!--  ==========  -->
+                    <div class="span3">
+                        <div class="main-titles lined">
+                            <h3 class="title"><span class="light">منو</span> اصلی</h3>
+                        </div>
+                        <ul class="nav bold">
+                            <li><a href="../Index.aspx">صفحه اصلی</a></li>
+                            <li><a href="../shop.aspx">فروشگاه</a></li>
+                            <li><a href="../about-us.aspx">درباره ما</a></li>
+                            <li><a href="../contact.aspx">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!--  ==========  -->
+                    <!--  = Menu 2 =  -->
+                    <!--  ==========  -->
+                    <div class="span3">
+                        <div class="main-titles lined">
+                            <h3 class="title"><span class="light">لینکهای</span> مرتبط</h3>
+                        </div>
+                        <ul class="nav">
+                            <li><a href="http://www.i-phone.ir">انجمن تخصصی آیفون</a></li>
+                            <li><a href="http://www.i-os.ir">انجمن تخصصی i-Os</a></li>
+                            <li><a href="http://www.gsm.ir">جی اس ام</a></li>
+                            <li><a href="#">مشاهده آخرین توییت ها</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!--  ==========  -->
+                    <!--  = Menu 3 =  -->
+                    <!--  ==========  -->
+                   <div class="span3">
+                        <div class="main-titles lined">
+                            <h3 class="title"><span class="light">سایتهای</span>کاربردی </h3>
+                        </div>
+                        <ul class="nav">
+                            <li><a href="http://www.p30download.com">پی سی دانلود</a></li>
+                            <li><a href="http://www.downloadha.com">دانلودها</a></li>
+                            <li><a href="http://www.soft98.ir">سافت98</a></li>
+                            <li><a href="http://www.softgozar.ir">سافت گذر</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!--  ==========  -->
+                    <!--  = Menu 4 =  -->
+                    <!--  ==========  -->
+                 <div class="span3">
+                            <div class="main-titles lined">
+                                <h3 class="title"><span class="light">سایتهای</span> اخبار تکنولوژی  </h3>
+                            </div>
+                            <ul class="nav">
+                                <li><a href="http://www.narenji.ir">نارنجی</a></li>
+                                <li><a href="http://www.zoomit.ir/">زوم ایت</a></li>
+                                <li><a href="http://www.khabarpu.com/cat/technology-science-news.html">خبر پو</a></li>
+                                <li><a href="http://www.gadgetnews.ir/">اخبار گدجت</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+			
+			<div class="cpContainter">
+			<div class="shirazteamCR">
+			  <div class="inside">طراحی شده توسط <a href="http://ShirazTeam.ir" target="_blank" title="شیراز تیم">ShirazTeam.ir</a></div>
+			</div>
+			</div>
+			
+        </div> <!-- /middle footer -->
+        
+        <!--  ==========  -->
+        <!--  = Bottom Footer =  -->
+        <!--  ==========  -->
+        <div class="foot-last">
+            <a href="#" id="toTheTop">
+                <span class="icon-chevron-up"></span>
+            </a>
+            <div class="container">
+                <div class="row">
+                   <div style="text-align:center">
+                        Copyright 2014. Images of products by <a target="_blank" href="http://www.shirazteam.ir/">Shiraz Team</a>
+                    </div>
+                    <br />
+                    <div style="text-align:center">
+                        <div ><a href="http://www.ShirazTeam.ir">گروه نرم افزاری شیراز </a></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /bottom footer -->
+    </footer>
+        <!-- /footer -->
+    </div>
+    <!-- end of master-wrapper -->
+    <!--  ==========  -->
+    <!--  = JavaScript =  -->
+    <!--  ==========  -->
+    <!--  = FB =  -->
+
+    <!--  = _ =  -->
+</body>
+</html>

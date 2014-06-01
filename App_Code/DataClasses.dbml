@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="mobile_hardware" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\DB\mobile_hardware.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="mobile_hardwareConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vm_brand" Member="vm_brands">
+    <Type Name="vm_brand">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="vm_brand_vm_product" Member="vm_products" ThisKey="id" OtherKey="brand_id" Type="vm_product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_userinfo" Member="vm_userinfos">
+    <Type Name="vm_userinfo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="f_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="l_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="zip_code" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="company" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="is_admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="percent_price" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="is_off" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ostan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="city" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="vm_userinfo_vm_order_buy" Member="vm_order_buys" ThisKey="id" OtherKey="user_id" Type="vm_order_buy" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_category" Member="vm_categories">
+    <Type Name="vm_category">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="vm_category_vm_product" Member="vm_products" ThisKey="id" OtherKey="cat_id" Type="vm_product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_order_buy" Member="vm_order_buys">
+    <Type Name="vm_order_buy">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="peyment" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="totalprice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="sendprice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="vm_order_buy_vm_orderlist" Member="vm_orderlists" ThisKey="id" OtherKey="order_id" Type="vm_orderlist" />
+      <Association Name="vm_userinfo_vm_order_buy" Member="vm_userinfo" ThisKey="user_id" OtherKey="id" Type="vm_userinfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_orderlist" Member="vm_orderlists">
+    <Type Name="vm_orderlist">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="count" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="vm_order_buy_vm_orderlist" Member="vm_order_buy" ThisKey="order_id" OtherKey="id" Type="vm_order_buy" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="vm_product_vm_orderlist" Member="vm_product" ThisKey="product_id" OtherKey="id" Type="vm_product" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_pic" Member="vm_pics">
+    <Type Name="vm_pic">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="vm_product_vm_pic" Member="vm_product" ThisKey="product_id" OtherKey="id" Type="vm_product" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vm_product" Member="vm_products">
+    <Type Name="vm_product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="movjodi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="detail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cat_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="brand_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Association Name="vm_product_vm_orderlist" Member="vm_orderlists" ThisKey="id" OtherKey="product_id" Type="vm_orderlist" />
+      <Association Name="vm_product_vm_pic" Member="vm_pics" ThisKey="id" OtherKey="product_id" Type="vm_pic" />
+      <Association Name="vm_brand_vm_product" Member="vm_brand" ThisKey="brand_id" OtherKey="id" Type="vm_brand" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="vm_category_vm_product" Member="vm_category" ThisKey="cat_id" OtherKey="id" Type="vm_category" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

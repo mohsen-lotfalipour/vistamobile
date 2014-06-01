@@ -4,20 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using vistamobile;
+using System.Text.RegularExpressions;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using vistamobile.DAL;
-
-public partial class Admin_index : System.Web.UI.Page
+using System.Web.UI.HtmlControls;
+public partial class Main : System.Web.UI.MasterPage
 {
-    protected string TestString { get; set; }
-   
-    database db = new database();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
-   
 }
